@@ -1,0 +1,38 @@
+server:
+  port: 9001
+
+
+spring:
+  application:
+    name: spring-mybatis
+  datasource:
+    username: root
+    password: Mysql01@beyond.com
+    url: jdbc:mysql://161.189.11.43:3306/b1000?allowMultiQueries=true&useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+  jackson:
+    time-zone: GMT+8
+  banner:
+    charset: UTF-8
+    location: classpath:banner.txt
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: cn.sunlei.springmybatis.entity
+
+mybatis-plus:
+  configuration:
+    # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
+
+

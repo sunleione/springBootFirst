@@ -1,0 +1,32 @@
+server:
+  port: 9001
+
+
+spring:
+  application:
+    name: spring-mybatis
+  datasource:
+    username: root
+    password: Mysql01@beyond.com
+    url: jdbc:mysql://52.82.121.209:3306/b1000?allowMultiQueries=true&useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jackson:
+    time-zone: GMT+8
+  banner:
+    charset: UTF-8
+    location: classpath:banner.txt
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: cn.sunlei.springmybatis.city.entity
+
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
+
+
