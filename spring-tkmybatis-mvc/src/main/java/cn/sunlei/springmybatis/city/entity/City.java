@@ -14,6 +14,6 @@ public class City extends BaseEntity {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "provinceid")
+    @Column(name = "province_id")
     private String provinceId;
 }

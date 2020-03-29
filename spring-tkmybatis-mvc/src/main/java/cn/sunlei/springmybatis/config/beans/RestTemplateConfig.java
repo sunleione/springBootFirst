@@ -1,4 +1,4 @@
-package cn.sunlei.springmybatis.config;
+package cn.sunlei.springmybatis.config.beans;
 
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;

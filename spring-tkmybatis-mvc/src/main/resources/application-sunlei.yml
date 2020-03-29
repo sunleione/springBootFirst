@@ -7,8 +7,8 @@ spring:
     name: spring-mybatis
   datasource:
     username: root
-    password: Mysql01@beyond.com
-    url: jdbc:mysql://52.82.121.209:3306/b1000?allowMultiQueries=true&useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+    password: 1qaz2wsx
+    url: jdbc:mysql://localhost:3306/test?allowMultiQueries=true&useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=GMT
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jackson:
@@ -17,16 +17,34 @@ spring:
     charset: UTF-8
     location: classpath:banner.txt
 
+  mail:
+    host: smtp.qq.com
+    username: 932840053@qq.com
+    password: jdxbnnturrsubeeb
+    default-encoding: UTF-8
+    protocol: smtp
+    test-connection: false
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
 mybatis:
   mapper-locations: classpath:mapper/*Mapper.xml
   type-aliases-package: cn.sunlei.springmybatis.city.entity
 
 
-#showSql
+#show log
 logging:
   level:
     com:
       example:
         mapper : debug
+
+mail:
+  from: ${spring.mail.username}
 
 

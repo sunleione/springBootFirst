@@ -2,6 +2,7 @@ package cn.sunlei.springmybatis.common.base;
 
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.List;
 /**
  * @Date 2020/3/25 17:38
  * @Created by sunlei
+ *
+ * 待研究 @Transactional的使用失效的场景
  */
 public abstract class BaseServiceImpl<T extends BaseEntity, Id extends Serializable > implements BaseService<T, Id> {
 
@@ -42,6 +45,18 @@ public abstract class BaseServiceImpl<T extends BaseEntity, Id extends Serializa
     @Transactional
     public int deleteById(Id id) {
         return getDao().deleteByPrimaryKey(id);
+    }
+
+    @Transactional
+    @Override
+    public int deleteByIds(List<Id> ids) {
+        if(CollectionUtils.isEmpty(ids)){
+            return 0;
+        }
+        ids.stream().forEach(v->{
+            getDao().deleteByPrimaryKey(v);
+        });
+        return ids.size();
     }
 
     @Override
@@ -86,7 +101,6 @@ public abstract class BaseServiceImpl<T extends BaseEntity, Id extends Serializa
         List<T> list = getDao().selectByExampleAndRowBounds(o, rowBounds);
         return list;
     }
-
 
     @Override
     public List<T> selectByRowBounds(T t, RowBounds rowBounds) {

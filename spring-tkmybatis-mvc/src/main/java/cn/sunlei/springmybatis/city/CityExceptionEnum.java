@@ -1,20 +1,22 @@
-package cn.sunlei.springmybatis.exception;
+package cn.sunlei.springmybatis.city;
 
+
+import cn.sunlei.springmybatis.common.base.BaseErrorEnum;
 
 /**
  * @Date 2020/3/25 17:38
  * @Created by sunlei
  */
-public enum UserErrorEnum implements BaseErrorEnum {
+public enum CityExceptionEnum implements BaseErrorEnum {
 
 
-    USER_NOT_EXIST("user_0001","city not exist",BAD_REQUEST);
+    CITY_NOT_EXIST("city_0001","city not exist",BAD_REQUEST);
 
     private String CodeId;
     private String message;
     private Integer errorStatus;
 
-    private UserErrorEnum(String codeId,String message,Integer errorStatus){
+    private CityExceptionEnum(String codeId,String message,Integer errorStatus){
         this.CodeId=codeId;
         this.message=message;
         this.errorStatus=errorStatus;

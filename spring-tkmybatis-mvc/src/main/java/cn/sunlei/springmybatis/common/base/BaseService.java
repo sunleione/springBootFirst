@@ -18,6 +18,8 @@ public interface BaseService<T,Id> {
 
     int deleteById(Id id);
 
+    int deleteByIds(List<Id> ids);
+
     int deleteByExample(Object object);
 
     boolean existsWithPrimaryKey(Object o);

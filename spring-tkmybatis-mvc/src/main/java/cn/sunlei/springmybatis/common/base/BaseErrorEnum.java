@@ -1,4 +1,4 @@
-package cn.sunlei.springmybatis.exception;
+package cn.sunlei.springmybatis.common.base;
 
 
 /**

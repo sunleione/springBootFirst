@@ -1,0 +1,20 @@
+
+关于freemarker使用的总结
+1.freemarker 解析html文件-->String 已经实现 参考 MailUtil
+
+2.freemarker 加载一般文件 比如init.sql 并传参数Map总结如下:
+   使用template.process(dataMap, out); 就可以将参数写入对应的文件中
+
+   resource = new FileSystemResource(tempFile.getAbsolutePath());
+   //can't use datasource.getConnection(); because it can use in one Transaction and PostgreSql support DDL Transactional
+   Connection connection = ((ConnectionHolder) TransactionSynchronizationManager.getResource(dataSource)).getConnection();
+   ScriptUtils.executeSqlScript(connection, resource);
+
+
+3.test文档中的功能用法场景:  初始化sql时的传参
+  执行sql文件时 可用 ScriptUtils.executeSqlScript(connection, resource);（spring jdbc包下的）
+  connection可通过 DataSourceUtils(spring的) 获取
+  ** 注意: 使用connection时要commit
+  (操作数据库 多研究spring jdbc包)
+  具体用法可以参见FreeMarker中文开发文档
+

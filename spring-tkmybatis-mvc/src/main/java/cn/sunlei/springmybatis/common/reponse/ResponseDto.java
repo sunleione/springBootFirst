@@ -1,9 +1,9 @@
 package cn.sunlei.springmybatis.common.reponse;
 
-import cn.sunlei.springmybatis.common.base.BaseRespone;
-import lombok.Data;
+        import cn.sunlei.springmybatis.common.base.BaseResponse;
+        import lombok.Data;
 
 @Data
-public class ResponseDto<T> extends BaseRespone {
+public class ResponseDto<T> extends BaseResponse {
     private T data;
 }

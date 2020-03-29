@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * @Created by sunlei
  */
 
-@Target({ElementType.PARAMETER})
+@Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface HttpCode {
     String codeId() default "";
